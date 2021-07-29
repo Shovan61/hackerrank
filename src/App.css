@@ -1,0 +1,80 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-container {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
+}
+.emoji {
+    font-size: 2rem;
+}
+.earth::after {
+    content: '🌎';
+    --emoji-1: '🌍';
+    --emoji-2: '🌏';
+    animation-name: threeFrames;
+    animation-duration: 5s;
+}
+@keyframes threeFrames {
+    25% {
+        content: var(--emoji-1);
+    }
+    50% {
+        content: var(--emoji-2);
+    }
+    75% {
+        content: var(--emoji-1);
+    }
+
+    100% {
+        content: '🌎';
+    }
+}
+
+.emoji::after {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.header {
+    color: #0c09af;
+    font-size: 3vw;
+    position: relative;
+    text-transform: uppercase;
+    -webkit-text-stroke: 0.01vw rgb(21, 21, 143);
+    letter-spacing: 3px;
+}
+
+.header::before {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #f11212;
+    overflow: hidden;
+    position: absolute;
+    content: attr(data-text);
+    border-right: 4px solid #f80f0f;
+    -webkit-text-stroke: 0vw #f7f7fe;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
